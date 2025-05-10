@@ -13,11 +13,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DepartmentRepository extends JpaRepository<Department, Long> {
 
-    /**
-     * Tìm phòng ban theo tên phòng ban.
-     *
-     * @param departmentName Tên phòng ban cần tìm.
-     * @return Department đối tượng phòng ban tìm thấy, hoặc null nếu không tìm thấy.
-     */
-    Department findByDepartmentName(String departmentName);
+
 }
