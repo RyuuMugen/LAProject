@@ -19,6 +19,7 @@
         <hikaricp.version>5.0.1</hikaricp.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
         <java-jwt.version>4.0.0</java-jwt.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <dependencies>
         <dependency>

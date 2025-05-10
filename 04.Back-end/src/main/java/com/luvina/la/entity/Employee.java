@@ -45,7 +45,17 @@ public class Employee {
      */
     @Column(name = "employee_telephone")
     private String employeeTelephone;
+    /**
+     * Mã hóa salt ngẫu nhiên để kết hợp với mật khẩu.
+     */
+    @Column(name = "salt")
+    private String salt;
 
+    /**
+     * Vai trò của nhân viên trong hệ thống (1: user, 0: admin, v.v.).
+     */
+    @Column(name = "role")
+    private String role;
     /**
      * Phòng ban của nhân viên.
      */
@@ -149,6 +159,40 @@ public class Employee {
      */
     public void setEmployeeTelephone(String employeeTelephone) {
         this.employeeTelephone = employeeTelephone;
+    }
+    /**
+     * Lấy salt của nhân viên.
+     *
+     * @return salt của nhân viên
+     */
+    public String getSalt() {
+        return salt;
+    }
+    /**
+     * Đặt salt của nhân viên.
+     *
+     * @param salt salt của nhân viên
+     */
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    /**
+     * Lấy số vai trò của nhân viên.
+     *
+     * @return vai trò của nhân viên
+     */
+    public String getRole() {
+        return role;
+    }
+
+    /**
+     * Đặt số vai trò của nhân viên.
+     *
+     * @param role vai trò của nhân viên
+     */
+    public void setRole(String role) {
+        this.role = role;
     }
 
     /**

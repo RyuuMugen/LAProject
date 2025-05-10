@@ -9,12 +9,13 @@
  * @author PhamToanThang
  */
 
-package com.luvina.la.repository;
+package com.luvina.la.repository.impl;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.luvina.la.repository.EmployeeRepositoryCustom;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

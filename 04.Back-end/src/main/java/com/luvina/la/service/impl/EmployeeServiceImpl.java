@@ -9,11 +9,12 @@
  * @author PhamToanThang
  */
 
-package com.luvina.la.service.EmployeeService;
+package com.luvina.la.service.impl;
 
 import com.luvina.la.dto.EmployeeDTO;
 import com.luvina.la.mapper.EmployeeMapper;
 import com.luvina.la.repository.EmployeeRepository;
+import com.luvina.la.service.EmployeeService;
 import com.luvina.la.utils.CustomException;
 import com.luvina.la.utils.MessageUtil;
 
@@ -73,8 +74,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         ordCertificationName = validateOrder(ordCertificationName, validOrders);
         ordEndDate = validateOrder(ordEndDate, validOrders);
 
+        // Trước khi gọi phương thức làm sạch countEmployees
+        String sanitizedEmployeeName = sanitizeInputForLike(employeeName);
+
         // Đếm tổng số bản ghi
-        Long totalRecords = employeeRepository.countEmployees(employeeName, departmentId);
+        Long totalRecords = employeeRepository.countEmployees(sanitizedEmployeeName, departmentId);
 
         // Chuẩn bị map trả về
         Map<String, Object> response = new HashMap<>();
@@ -84,7 +88,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         // Nếu có bản ghi thì mới truy vấn dữ liệu
         if (totalRecords > 0) {
             List<Object[]> results = employeeRepository.findEmployeesWithDynamicSorting(
-                    employeeName,
+                    sanitizedEmployeeName,
                     departmentId,
                     ordEmployeeName,
                     ordCertificationName,
@@ -100,7 +104,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
             response.put("employees", employees);
         } else {
-             response.put("employees", List.of()); // Trả về list rỗng
+            response.put("employees", List.of()); // Trả về list rỗng
         }
         return response;
     }
@@ -126,4 +130,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return upper;
     }
+
+    private String sanitizeInputForLike(String input) {
+        if (input == null || input.isBlank()) {
+            return null;
+        }
+
+        return input.trim()
+                .replace("\\", "\\\\")  // escape dấu \ trước tiên
+                .replace("%", "\\%")
+                .replace("_", "\\_")
+                .replace(";", "\\;")
+                .replace(",", "\\,")
+                .replace("/", "\\/");
+    }
+
+
 }

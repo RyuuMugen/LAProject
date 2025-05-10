@@ -1,4 +1,4 @@
-package com.luvina.la.service.EmployeeService;
+package com.luvina.la.service;
 
 import com.luvina.la.utils.CustomException;
 import java.util.Map;
@@ -34,4 +34,6 @@ public interface EmployeeService {
             String ord_end_date,
             String sortPriority
     ) throws CustomException;
+
+
 }

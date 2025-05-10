@@ -1,23 +1,12 @@
-/**
- * File: EmployeeRepository.java
- * Package: com.luvina.la.repository
- * Description: Repository quản lý truy vấn dữ liệu nhân viên từ cơ sở dữ liệu.
- *
- * Copyright(C) 2025 Luvina Software Company
- * EmployeeRepository.java, 05/05/2025, 16_PhamToanThang
- *
- * @author PhamToanThang
- */
-
 package com.luvina.la.repository;
 
 import com.luvina.la.entity.Employee;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 /**
  * Giao diện Repository mở rộng từ PagingAndSortingRepository để thao tác với thực thể {@link Employee}.
@@ -25,26 +14,6 @@ import org.springframework.data.repository.query.Param;
  */
 @Repository
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long>, EmployeeRepositoryCustom {
-
-    /**
-     * Tìm kiếm danh sách nhân viên theo mã phòng ban và tên nhân viên (có chứa).
-     *
-     * @param departmentId  ID phòng ban
-     * @param employeeName  Tên nhân viên cần tìm (một phần)
-     * @param pageable      Đối tượng phân trang
-     * @return Trang kết quả chứa danh sách nhân viên
-     */
-    Page<Employee> findByDepartment_DepartmentIdAndEmployeeNameContaining(
-            Long departmentId, String employeeName, Pageable pageable);
-
-    /**
-     * Tìm kiếm danh sách nhân viên theo tên nhân viên (có chứa).
-     *
-     * @param employeeName  Tên nhân viên cần tìm (một phần)
-     * @param pageable      Đối tượng phân trang
-     * @return Trang kết quả chứa danh sách nhân viên
-     */
-    Page<Employee> findByEmployeeNameContaining(String employeeName, Pageable pageable);
 
     /**
      * Truy vấn tất cả nhân viên có phân trang.
@@ -71,4 +40,13 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
             @Param("employeeName") String employeeName,
             @Param("departmentId") Long departmentId
     );
+
+    /**
+     * Thêm mới một nhân viên vào cơ sở dữ liệu.
+     *
+     * @param employee Đối tượng nhân viên cần thêm
+     * @return Đối tượng nhân viên đã được lưu
+     */
+    Employee save(Employee employee); // Phương thức này đã có sẵn trong PagingAndSortingRepository
+
 }

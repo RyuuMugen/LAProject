@@ -102,7 +102,7 @@ INSERT INTO employees (
 (4, 'Nguyen Thi Lan', 'nguyen.lan20@example.com', 'nguyen_lan20', 'password20', '1989-09-17', '0920000020'),
 (5, 'Pham Mai Quyen', 'pham.quyen21@example.com', 'pham_quyen21', 'password21', '1988-10-18', '0921000021'),
 (6, 'Le Quoc Khai', 'le.khai22@example.com', 'le_khai22', 'password22', '1997-11-19', '0922000022'),
-(7, 'B_i%n/h;h,h', 'tran.kim23@example.com', 'tran_kim23', 'password23', '1996-12-20', '0923000023');
+(9, 'B_i%n/h;h,h', 'tran.kim23@example.com', 'tran_kim23', 'password23', '1996-12-20', '0923000023');
 
 -- Thêm một mối quan hệ chứng chỉ cho nhân viên vào bảng employee_certifications
 INSERT INTO employee_certifications (employee_id, certification_id, start_date, end_date, score) VALUES
@@ -150,3 +150,74 @@ INSERT INTO employee_certifications (employee_id, certification_id, start_date, 
 INSERT INTO employees (department_id, employee_name, employee_email, employee_login_id
 ) VALUES (1, 'Nguyen Van null', 'vana@example.com', 'vana_login');
 
+INSERT INTO employees (
+    department_id,
+    employee_name,
+    employee_name_kana,
+    employee_email,
+    employee_login_id,
+    employee_login_password,
+    employee_birth_date,
+    employee_telephone,
+    salt,
+    role
+) VALUES (
+    1, -- department_id
+    'wwwwwwww10wwwwwwww20wwwww', -- employee_name
+    'wwwwwwww10wwwwwwww20wwwww', -- employee_name_kana
+    'wwwwwwww10wwwwwwww20wwwww', -- employee_email
+    'wwwwwwww10wwwwwwww20wwwww', -- employee_login_id
+    'wwwwwwww10wwwwwwww20wwwww', -- employee_login_password
+    '1990-01-01', -- employee_birth_date
+    '1234567895', -- employee_telephone
+    'wwwwwwww10wwwwwwww20wwwww', -- salt
+    1 -- role
+);
+
+INSERT INTO employees (
+    department_id,
+    employee_name,
+    employee_name_kana,
+    employee_email,
+    employee_login_id,
+    employee_login_password,
+    employee_birth_date,
+    employee_telephone,
+    salt,
+    role
+) VALUES (
+    1, -- department_id
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- employee_name
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- employee_name_kana
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- employee_email
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- employee_login_id
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- employee_login_password
+    '1990-01-01', -- employee_birth_date
+    '1234567895', -- employee_telephone
+    'qqqqqqqq10qqqqqqqq20qqqqq', -- salt
+    1 -- role
+);
+
+INSERT INTO employees (
+    department_id,
+    employee_name,
+    employee_name_kana,
+    employee_email,
+    employee_login_id,
+    employee_login_password,
+    employee_birth_date,
+    employee_telephone,
+    salt,
+    role
+) VALUES (
+    1, -- department_id
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- employee_name
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- employee_name_kana
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- employee_email
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- employee_login_id
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- employee_login_password
+    '1990-01-01', -- employee_birth_date
+    '1234567895', -- employee_telephone
+    'iiiiiiii10iiiiiiii20iiiiiiii30', -- salt
+    1 -- role
+);
